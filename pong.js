@@ -48,8 +48,16 @@ function draw() {
     //blue player
     noStroke();
     fill(54, 73, 245);
-    rect(windowWidth - 20, redPlayer.yPosition, 20, 100);
-
+    rect(windowWidth - 20, bluePlayer.yPosition, 20, 100);
+    //red player controls
+    if (keyIsDown(ESCAPE) && bluePlayer.yPosition > 0)
+    {
+        bluePlayer.yPosition -= 5;
+    }
+    if (keyIsDown(CONTROL) && bluePlayer.yPosition < windowHeight - 100)
+    {
+        bluePlayer.yPosition += 5;
+    }
 
     //Wall Collision
     if (Pong.xDiagIncreasing)
