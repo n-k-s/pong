@@ -13,11 +13,11 @@ let Pong = {
 
 let bluePlayer = {
     score: 0,
-    yPosition: 0
+    yPosition: 100
 }
 let redPlayer = {
     score: 0,
-    yPosition: 0
+    yPosition: 100
 
 }
 
@@ -33,11 +33,22 @@ function draw() {
 
     //red player
     noStroke();
-    fill(255,0,0)
-    rect(0, redPlayer.yPosition, 20, 50);
+    fill(245, 54, 54);
+    rect(0, redPlayer.yPosition, 20, 100);
+    //red player controls
+    if (keyIsDown(UP_ARROW) && redPlayer.yPosition > 0)
+    {
+            redPlayer.yPosition -= 5;
+    }
+    if (keyIsDown(DOWN_ARROW) && redPlayer.yPosition < windowHeight - 100)
+    {
+        redPlayer.yPosition += 5;
+    }
 
     //blue player
-
+    noStroke();
+    fill(54, 73, 245);
+    rect(windowWidth - 20, redPlayer.yPosition, 20, 100);
 
 
     //Wall Collision
@@ -74,6 +85,16 @@ function draw() {
         }
     }
 }
+//player controls
+function keyPressed()
+{
+    if (key == 'w') {
+        redPlayer.yPosition++;
+    }
+}
+
+
+//mouse pressed detection
 function mousePressed()
 {
     Pong.x = mouseX;
