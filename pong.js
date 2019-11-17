@@ -67,13 +67,13 @@ function draw() {
         bluePlayer.yPosition += 5;
     }
     //red wall collision
-    if (Pong.x <= 20 && Pong.y > redPlayer.yPosition && Pong.y > redPlayer.yPosition - 100)
+    if (Pong.x <= 20 && (Pong.y < redPlayer.yPosition + 100 && Pong.y > redPlayer.yPosition + 0))
     {
         Pong.xDiagIncreasing = !Pong.xDiagIncreasing;
         Pong.yDiagIncreasing = !Pong.yDiagIncreasing;
     }
     //blue wall collision
-    if (Pong.x >= windowWidth - 38 && Pong.y > bluePlayer.yPosition && Pong.y > bluePlayer.yPosition - 100)
+    if (Pong.x >= windowWidth - 38 && (Pong.y < bluePlayer.yPosition + 100 && Pong.y > bluePlayer.yPosition + 0))
     {
         Pong.xDiagIncreasing = !Pong.xDiagIncreasing;
         Pong.yDiagIncreasing = !Pong.yDiagIncreasing;
@@ -83,12 +83,15 @@ function draw() {
 
 
     //Wall Collision
+
+
     if (Pong.xDiagIncreasing)
     {
         Pong.x += Pong.speed;
         if(Pong.x > windowWidth - 20)
         {
             Pong.xDiagIncreasing = false;
+            redPlayer.score++;
         }
     }
     else if (!Pong.xDiagIncreasing)
