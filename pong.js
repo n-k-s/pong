@@ -3,7 +3,7 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
 }
 let Pong = {
-
+    globalCount: 0,
     xDiagIncreasing: true,
     yDiagIncreasing: false,
     x: 300,
@@ -34,7 +34,16 @@ function draw() {
     else
         fill(255, 194, 191);
     square(Pong.x, Pong.y, 20);
-
+    //INSTRUCTIONS
+    if (Pong.globalCount < 400)
+    {
+        Pong.globalCount++;
+        textSize(20);
+        textAlign(CENTER);
+        text('Red Player: Up - ESC   Down - CONTROL', windowWidth / 2, windowHeight / 2);
+        text('Blue Player: Up - Up arrow   Down - Down arrow', windowWidth / 2, (windowHeight / 2) - 30);
+    }
+    textSize(15);
     //red player
     noStroke();
     fill(245, 54, 54);
@@ -45,11 +54,11 @@ function draw() {
 
 
     //red player controls
-    if (keyIsDown(UP_ARROW) && redPlayer.yPosition > 0)
+    if (keyIsDown(ESCAPE) && redPlayer.yPosition > 0)
     {
             redPlayer.yPosition -= 5;
     }
-    if (keyIsDown(DOWN_ARROW) && redPlayer.yPosition < windowHeight - 100)
+    if (keyIsDown(CONTROL) && redPlayer.yPosition < windowHeight - 100)
     {
         redPlayer.yPosition += 5;
     }
@@ -62,11 +71,11 @@ function draw() {
     fill(0,0,0);
     text(bluePlayer.score, windowWidth - 17, bluePlayer.yPosition + 30);
     //red player controls
-    if (keyIsDown(ESCAPE) && bluePlayer.yPosition > 0)
+    if (keyIsDown(UP_ARROW) && bluePlayer.yPosition > 0)
     {
         bluePlayer.yPosition -= 5;
     }
-    if (keyIsDown(CONTROL) && bluePlayer.yPosition < windowHeight - 100)
+    if (keyIsDown(DOWN_ARROW) && bluePlayer.yPosition < windowHeight - 100)
     {
         bluePlayer.yPosition += 5;
     }
