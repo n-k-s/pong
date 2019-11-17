@@ -35,6 +35,11 @@ function draw() {
     noStroke();
     fill(245, 54, 54);
     rect(0, redPlayer.yPosition, 20, 100);
+    //red player score
+    fill(50);
+    text(redPlayer.score, 5, redPlayer.yPosition + 30);
+
+
     //red player controls
     if (keyIsDown(UP_ARROW) && redPlayer.yPosition > 0)
     {
@@ -49,6 +54,9 @@ function draw() {
     noStroke();
     fill(54, 73, 245);
     rect(windowWidth - 20, bluePlayer.yPosition, 20, 100);
+    //blue player score
+    fill(0,0,0);
+    text(bluePlayer.score, windowWidth - 17, bluePlayer.yPosition + 30);
     //red player controls
     if (keyIsDown(ESCAPE) && bluePlayer.yPosition > 0)
     {
@@ -58,6 +66,21 @@ function draw() {
     {
         bluePlayer.yPosition += 5;
     }
+    //red wall collision
+    if (Pong.x <= 20 && Pong.y > redPlayer.yPosition && Pong.y > redPlayer.yPosition - 100)
+    {
+        Pong.xDiagIncreasing = !Pong.xDiagIncreasing;
+        Pong.yDiagIncreasing = !Pong.yDiagIncreasing;
+    }
+    //blue wall collision
+    if (Pong.x >= windowWidth - 38 && Pong.y > bluePlayer.yPosition && Pong.y > bluePlayer.yPosition - 100)
+    {
+        Pong.xDiagIncreasing = !Pong.xDiagIncreasing;
+        Pong.yDiagIncreasing = !Pong.yDiagIncreasing;
+    }
+
+
+
 
     //Wall Collision
     if (Pong.xDiagIncreasing)
