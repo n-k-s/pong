@@ -9,6 +9,7 @@ let Pong = {
     x: 300,
     y: 150,
     speed: 1.5
+
 }
 
 let bluePlayer = {
@@ -28,7 +29,10 @@ function draw() {
     background(0, 0, 0);
     //Pong ball
     noStroke();
-    fill(random(0, 255), random(0, 255), 150);
+    if (!Pong.xDiagIncreasing)
+        fill(191, 217, 255);
+    else
+        fill(255, 194, 191);
     square(Pong.x, Pong.y, 20);
 
     //red player
@@ -100,6 +104,7 @@ function draw() {
         if(Pong.x < 0)
         {
             Pong.xDiagIncreasing = true;
+            bluePlayer.score++;
         }
     }
     if (Pong.yDiagIncreasing)
