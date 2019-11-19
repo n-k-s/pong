@@ -8,7 +8,7 @@ let Pong = {
     yDiagIncreasing: false,
     x: 300,
     y: 150,
-    speed: 1.5
+    speed: 2.0
 
 }
 
