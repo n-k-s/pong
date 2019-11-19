@@ -42,6 +42,7 @@ function draw() {
         textAlign(CENTER);
         text('Red Player: Up - ESC   Down - CONTROL', windowWidth / 2, windowHeight / 2);
         text('Blue Player: Up - Up arrow   Down - Down arrow', windowWidth / 2, (windowHeight / 2) - 30);
+        text('Speed down - ,        Speed up - .  ', windowWidth / 2, (windowHeight / 2) + 30);
     }
     textSize(15);
     //red player
@@ -133,15 +134,16 @@ function draw() {
         }
     }
 }
-//player controls
+//speed controls
 function keyPressed()
 {
-    if (key == 'w') {
-        redPlayer.yPosition++;
+    if (key == ',' && Pong.speed > 0) {
+        Pong.speed -= .5;
+    }
+    if (key == '.') {
+        Pong.speed += .5;
     }
 }
-
-
 //mouse pressed detection
 function mousePressed()
 {
@@ -156,5 +158,6 @@ function collision()
     Pong.xDiagIncreasing = !Pong.xDiagIncreasing;
     Pong.yDiagIncreasing = !Pong.yDiagIncreasing;
 }
+
 
 
