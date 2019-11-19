@@ -71,15 +71,7 @@ function draw() {
     //blue player score
     fill(0,0,0);
     text(bluePlayer.score, windowWidth - 13, bluePlayer.yPosition + 30);
-    //blue player controls
-    if (keyIsDown(UP_ARROW) && bluePlayer.yPosition > 0)
-    {
-        bluePlayer.yPosition -= 5;
-    }
-    if (keyIsDown(DOWN_ARROW) && bluePlayer.yPosition < windowHeight - 100)
-    {
-        bluePlayer.yPosition += 5;
-    }
+
     //red wall collision
     if (Pong.x <= 20 && (Pong.y < redPlayer.yPosition + 100 && Pong.y > redPlayer.yPosition + 0))
     {
@@ -134,14 +126,26 @@ function draw() {
         }
     }
 }
-//speed controls
+//controls
 function keyPressed()
 {
+    //Speed controls
     if (key == ',' && Pong.speed > 0) {
         Pong.speed -= .5;
     }
     if (key == '.') {
         Pong.speed += .5;
+    }
+
+
+    //blue player controls
+    if (keyIsDown(UP_ARROW) && bluePlayer.yPosition > 0)
+    {
+        bluePlayer.yPosition -= 5;
+    }
+    if (keyIsDown(DOWN_ARROW) && bluePlayer.yPosition < windowHeight - 100)
+    {
+        bluePlayer.yPosition += 5;
     }
 }
 //mouse pressed detection
