@@ -63,7 +63,15 @@ function draw() {
     {
         redPlayer.yPosition += 5;
     }
-
+    //blue player controls
+    if (keyIsDown(UP_ARROW) && bluePlayer.yPosition > 0)
+    {
+        bluePlayer.yPosition -= 5;
+    }
+    if (keyIsDown(DOWN_ARROW) && bluePlayer.yPosition < windowHeight - 100)
+    {
+        bluePlayer.yPosition += 5;
+    }
     //blue player
     noStroke();
     fill(54, 73, 245);
@@ -135,17 +143,6 @@ function keyPressed()
     }
     if (key == '.') {
         Pong.speed += .5;
-    }
-
-
-    //blue player controls
-    if (keyIsDown(UP_ARROW) && bluePlayer.yPosition > 0)
-    {
-        bluePlayer.yPosition -= 5;
-    }
-    if (keyIsDown(DOWN_ARROW) && bluePlayer.yPosition < windowHeight - 100)
-    {
-        bluePlayer.yPosition += 5;
     }
 }
 //mouse pressed detection
