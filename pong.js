@@ -71,7 +71,7 @@ function draw() {
     //blue player score
     fill(0,0,0);
     text(bluePlayer.score, windowWidth - 13, bluePlayer.yPosition + 30);
-    //red player controls
+    //blue player controls
     if (keyIsDown(UP_ARROW) && bluePlayer.yPosition > 0)
     {
         bluePlayer.yPosition -= 5;
