@@ -10,6 +10,7 @@ let Pong = {
     y: 150,
     speed: 2.0,
     hitCount: 0
+    //todo make ball speed be based on hitcount, each hit makes the ball go faster
 
 }
 
