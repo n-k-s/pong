@@ -8,7 +8,9 @@ let Pong = {
     yDiagIncreasing: false,
     x: 300,
     y: 150,
-    speed: 2.0
+    speed: 2.2,
+    hitCount: 0
+    //todo make ball speed be based on hitcount, each hit makes the ball go faster
 
 }
 
@@ -85,12 +87,14 @@ function draw() {
     {
         Pong.xDiagIncreasing = !Pong.xDiagIncreasing;
         Pong.yDiagIncreasing = !Pong.yDiagIncreasing;
+        Pong.hitCount++;
     }
     //blue wall collision
     if (Pong.x >= windowWidth - 38 && (Pong.y < bluePlayer.yPosition + 100 && Pong.y > bluePlayer.yPosition + 0))
     {
         Pong.xDiagIncreasing = !Pong.xDiagIncreasing;
         Pong.yDiagIncreasing = !Pong.yDiagIncreasing;
+        Pong.hitCount++;
     }
 
 
