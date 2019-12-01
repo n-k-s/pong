@@ -8,10 +8,10 @@ let Pong = {
     yDiagIncreasing: false,
     x: 300,
     y: 150,
-    speed: 2.2,
-    hitCount: 0
-    //todo make ball speed be based on hitcount, each hit makes the ball go faster
+    hitCount: 0,
+    speed: 2
 
+    //todo make ball speed be based on hitcount, each hit makes the ball go faster
 }
 
 let bluePlayer = {
@@ -23,11 +23,7 @@ let redPlayer = {
     yPosition: 100
 
 }
-
-
 function draw() {
-
-
     background(0, 0, 0);
     //Pong ball
     noStroke();
@@ -54,8 +50,6 @@ function draw() {
     //red player score
     fill(50);
     text(redPlayer.score, 5, redPlayer.yPosition + 30);
-
-
     //red player controls
     if (keyIsDown(ESCAPE) && redPlayer.yPosition > 0)
     {
@@ -110,6 +104,7 @@ function draw() {
         {
             Pong.xDiagIncreasing = false;
             redPlayer.score++;
+            Pong.hitCount++;
         }
     }
     else if (!Pong.xDiagIncreasing)
@@ -119,11 +114,12 @@ function draw() {
         {
             Pong.xDiagIncreasing = true;
             bluePlayer.score++;
+            Pong.hitCount++;
         }
     }
     if (Pong.yDiagIncreasing)
     {
-        Pong.y += Pong.speed;
+        Pong.y += Pong.speed + (Pong.hitCount * .5);
         if(Pong.y > windowHeight - 20)
         {
             Pong.yDiagIncreasing = false;
@@ -131,7 +127,7 @@ function draw() {
     }
     else if (!Pong.yDiagIncreasing)
     {
-        Pong.y -= Pong.speed;
+        Pong.y -= Pong.speed + (Pong.hitCount * .5);
         if(Pong.y < 0)
         {
             Pong.yDiagIncreasing = true;
