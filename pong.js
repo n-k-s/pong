@@ -144,6 +144,47 @@ function keyPressed()
     if (key == '.') {
         Pong.speed += .5;
     }
+    if (key =='0')
+    {
+        Pong.speed = 0.0;
+    }
+    if (key =='1')
+    {
+        Pong.speed = 1.0;
+    }
+    if (key =='2')
+    {
+        Pong.speed = 2.0;
+    }
+    if (key =='3')
+    {
+        Pong.speed = 3.0;
+    }
+    if (key =='4')
+    {
+        Pong.speed = 4.0;
+    }
+    if (key =='5')
+    {
+        Pong.speed = 5.0;
+    }
+    if (key =='6')
+    {
+        Pong.speed = 6.0;
+    }
+    if (key =='7')
+    {
+        Pong.speed = 7.0;
+    }
+    if (key =='8')
+    {
+        Pong.speed = 8.0;
+    }
+    if (key == '9')
+    {
+        Pong.speed = 9.0;
+    }
+
 }
 //mouse pressed detection
 function mousePressed()
